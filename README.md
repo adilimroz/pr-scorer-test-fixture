@@ -47,3 +47,7 @@ npm run build
 ## GitHub App installation
 
 This repository is public and contains no secrets. Install your GitHub App on this repo to analyze pull requests opened from the test branches above.
+
+## Usage notes
+
+Use this fixture repo to validate PR risk scoring heuristics against known change profiles.
