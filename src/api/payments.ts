@@ -59,5 +59,5 @@ export async function authorizePayment(request: PaymentRequest): Promise<Payment
     }
   }
 
-  throw lastError ?? new Error('Payment authorization failed');
+  throw lastError ?? new Error('Payment authorization failed after retries');
 }
