@@ -12,7 +12,7 @@ export function PriceDisplay({ cents, currency = 'USD', label }: PriceDisplayPro
   return (
     <span className="price-display" data-testid="price-display">
       {label ? `${label}: ` : ''}
-      {formatted}
+      {formatted} USD
     </span>
   );
 }
