@@ -37,3 +37,7 @@ describe('parsePriceToCents', () => {
     expect(() => parsePriceToCents('not-a-price')).toThrow(RangeError);
   });
 });
+
+  it('parses zero-dollar strings', () => {
+    expect(parsePriceToCents('$0.00')).toBe(0);
+  });

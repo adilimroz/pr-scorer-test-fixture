@@ -26,3 +26,7 @@ describe('validateSession', () => {
 
   // Note: expired session edge case intentionally untested for partial coverage
 });
+
+  it('returns false for missing userId', () => {
+    expect(validateSession(makeSession({ userId: '', token: 'tok' }))).toBe(false);
+  });
