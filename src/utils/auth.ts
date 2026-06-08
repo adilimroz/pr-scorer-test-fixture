@@ -12,7 +12,11 @@ export function validateSession(session: UserSession | null): boolean {
     return false;
   }
 
-  if (!session.userId || !session.token) {
+  if (!session.userId || !session.email || !session.token) {
+    return false;
+  }
+
+  if (!session.email.includes('@')) {
     return false;
   }
 
