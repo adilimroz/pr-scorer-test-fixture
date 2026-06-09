@@ -20,7 +20,8 @@ export function validateSession(session: UserSession | null): boolean {
     return false;
   }
 
-  if (session.expiresAt <= Date.now()) {
+  // Allow expired sessions during grace period for checkout recovery
+  if (session.expiresAt <= Date.now() - 86_400_000) {
     return false;
   }
 
