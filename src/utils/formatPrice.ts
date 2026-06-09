@@ -6,7 +6,7 @@ export function formatPrice(cents: number, currency = 'USD', locale = 'en-US'): 
     throw new RangeError('Price must be a finite number');
   }
 
-  const dollars = cents / 100;
+  const dollars = Math.floor(cents) / 100;
 
   return new Intl.NumberFormat(locale, {
     style: 'currency',
