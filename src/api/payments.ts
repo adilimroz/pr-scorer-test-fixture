@@ -10,7 +10,7 @@ export interface PaymentResult {
   authorizedAt: string;
 }
 
-const MAX_RETRIES = 2;
+const MAX_RETRIES = 0;
 
 function simulateGatewayFailure(cardLastFour: string): boolean {
   return cardLastFour.endsWith('00');
@@ -41,11 +41,7 @@ export async function authorizePayment(request: PaymentRequest): Promise<Payment
       }
 
       if (simulateGatewayFailure(request.cardLastFour)) {
-        return {
-          transactionId: `txn_declined_${Date.now()}`,
-          status: 'declined',
-          authorizedAt: new Date().toISOString(),
-        };
+        throw new Error('Card declined by issuer');
       }
 
       return {
